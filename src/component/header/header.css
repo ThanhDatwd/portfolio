@@ -1,0 +1,89 @@
+header{
+    height: 100vh;
+    padding-top: 4rem;
+    overflow: hidden;
+}
+
+.header__container{
+    position: relative;
+    text-align: center;
+    height:100%;
+}
+
+
+.cta{
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+
+/* ============= HEADER SOCAILS ======== */
+
+.header__socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.8rem;
+    position: absolute;
+    left: 0;
+    bottom: 3rem;
+}
+.header__socials::after{
+   content:"";
+   width:1px;
+   height:2rem;
+   background: var(--color-primary);
+}
+
+
+/* ================= ME ==================== */
+
+.me{
+    background: linear-gradient(var(--color-primary),  transparent);
+    width:22rem;
+    height:30rem;
+    margin-top: 4rem;
+    padding : 2rem 0.5rem 0.5rem 0.5rem;
+    position: absolute;
+    /* left: calc(50% - 9rem); */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12rem 12rem 0 0;
+    overflow: hidden;
+}
+
+/* =========  SCROLL DOWM ===================== */
+.scroll__down{
+    position: absolute;
+    right: 0;
+    bottom: 5rem;
+    transform: rotate(90deg);
+    font-size: 0.9rem;
+    font-weight: 200;
+}
+
+/* ====================MEIDA QUERIER (midel) ======================= */
+
+@media screen and (max-width:1024px) {
+   header{
+       height: 68vh;
+   }
+
+}
+@media screen and (max-width:600px) {
+   
+    header{
+        height:100vh;
+        padding-top: 1rem;
+    }
+    .me{
+        margin-top: 4rem;
+    }
+    .header__socials,
+    .scroll__down{
+        display: none;
+    }
+    
+}
