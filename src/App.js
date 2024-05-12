@@ -7,6 +7,7 @@ import Nav from "./component/nav";
 import Dv from "./component/service";
 import Portfolio from "./component/portfolio";
 import Testimonals from "./component/testimonals";
+import Project from "./component/project";
 
 
 function App() {
@@ -16,12 +17,13 @@ function App() {
     <Header/>
     <Nav/>
     <About/>
-    <Experience/>
+    {/* <Experience/> */}
     {/* <Dv/> */}
-    <Portfolio/>
-    <Testimonals/>
-    <Contact/>
-    {/* <Footer/> */}
+    <Project/>
+    {/* <Portfolio/> */}
+    {/* <Testimonals/> */}
+    {/* <Contact/> */}
+    <Footer/>
     
     </>
   );

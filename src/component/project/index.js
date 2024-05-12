@@ -1,30 +1,21 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import image1 from "../../assets/product1.jpg";
-import image2 from "../../assets/me.png";
-import imagegame from "../../assets/game.png";
 import "./portfolio.css";
-const Portfolio = () => {
+const Project = () => {
   return (
-    <section id="portfolio">
+    <section id="project" style={{paddingBottom:"80px"}}>
       <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+      <h2>PROJECT PARTICIPATED</h2>
       <div className="container portfolio__container">
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img
-              src={
-                "https://kiemtienblog.com/wp-content/uploads/2019/12/Foody.png"
-              }
-              alt=""
-            />
+            <img src={"/assets/dvsk.png"} alt="" />
           </div>
-          <h3>Project clone Foody</h3>
+          <h3>Đại Việt Sử Ký</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
             <a
-              href="http://localhost/duanmau/"
+              href="https://dvsk-ui-content.vercel.app/"
               className="btn btn-primary"
               target="_blank"
             >
@@ -34,20 +25,12 @@ const Portfolio = () => {
         </article>
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img
-              src={
-                "https://cdn1.hoanghamobile.com/tin-tuc/wp-content/uploads/2021/10/2.jpg"
-              }
-              alt=""
-            />
+            <img src={"/assets/weknot_logo.svg"} alt="" />
           </div>
-          <h3>Project CHAT APP</h3>
+          <h3>Weknot Social</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
             <a
-              href="http://localhost/chatApp/client"
+              href="https://social-staging.augmentlabs.io/home"
               className="btn btn-primary"
               target="_blank"
             >
@@ -57,15 +40,12 @@ const Portfolio = () => {
         </article>
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img src={imagegame} alt="" />
+            <img src="/assets/logo_scan_light.svg" alt="" />
           </div>
-          <h3>Project Game</h3>
+          <h3>Vinascan</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
             <a
-              href="http://127.0.0.1:5500/index.html"
+              href="https://vinascan.vercel.app/"
               className="btn btn-primary"
               target="_blank"
             >
@@ -75,20 +55,12 @@ const Portfolio = () => {
         </article>
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img
-              src={
-                "https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg"
-              }
-              alt=""
-            />
+            <img src="/assets/logo_scan_light.svg" alt="" />
           </div>
-          <h3>Project Mucsic App</h3>
+          <h3>Vinachain Swap</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
             <a
-              href="https://dribbble.com/shots/17642120-SaaS-landing-Page-Online-Video-Editor"
+              href="https://vinachain-swap.vercel.app/referral"
               className="btn btn-primary"
               target="_blank"
             >
@@ -98,15 +70,13 @@ const Portfolio = () => {
         </article>
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img src={image1} alt="" />
+          <img src={'/assets/FStorage-Logo.webp'} alt="" />
           </div>
-          <h3>This is my product</h3>
+          <h3>Fstorage</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
+            
             <a
-              href="https://dribbble.com/shots/17642120-SaaS-landing-Page-Online-Video-Editor"
+              href="https://fstorage.vn/"
               className="btn btn-primary"
               target="_blank"
             >
@@ -116,15 +86,12 @@ const Portfolio = () => {
         </article>
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img src={image1} alt="" />
+            <img src={'/assets/spacecy-wallet.png'} alt="" />
           </div>
-          <h3>This is my product</h3>
+          <h3>Spacecy wallet</h3>
           <div className="portfolio__item-cta">
-            <a href="https://github.com" className="btn" target="_blank">
-              githup
-            </a>
             <a
-              href="https://dribbble.com/shots/17642120-SaaS-landing-Page-Online-Video-Editor"
+              href="https://chromewebstore.google.com/detail/mkchoaaiifodcflmbaphdgeidocajadp"
               className="btn btn-primary"
               target="_blank"
             >
@@ -137,4 +104,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Project;

@@ -13,6 +13,8 @@
     place-items: center;
 }
 .about__me-image{
+    width: 100%;
+    aspect-ratio: 1/1;
     transform: rotate(10deg);
     background: var(--color-primary);
     border-radius: 2rem;

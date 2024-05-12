@@ -20,24 +20,30 @@
             >
                 <AiOutlineUser/>
             </a>
-            <a href="#experience"
+            {/* <a href="#experience"
                     className={activeNav==='#experience'?'active':''}
                     onClick={()=> setActiveNav('#experience')}
             >
                 <BiBook/>
-            </a>
-            <a href="#services"
-                    className={activeNav==='#services'?'active':''}
+            </a> */}
+            <a href="#project"
+                    className={activeNav==='#project'?'active':''}
                     onClick={()=> setActiveNav('#services')}
             >
                 <RiServiceLine/>
             </a>
-            <a href="#contact"
+            {/* <a href="#services"
+                    className={activeNav==='#services'?'active':''}
+                    onClick={()=> setActiveNav('#services')}
+            >
+                <RiServiceLine/>
+            </a> */}
+            {/* <a href="#contact"
                     className={activeNav==='#contact'?'active':''}
                     onClick={()=> setActiveNav('#contact')}
             >
                 <BiMessageDetail/>
-            </a>
+            </a> */}
         </nav>
      );
  }
