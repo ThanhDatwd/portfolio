@@ -58,6 +58,10 @@ const Project = () => {
             <img src="/assets/logo_scan_light.svg" alt="" />
           </div>
           <h3>Vinachain Swap</h3>
+          <div>
+            <span>Tk: thanhdattest</span>
+            <span>Mk: Abcd@1234</span>
+          </div>
           <div className="portfolio__item-cta">
             <a
               href="https://vinachain-swap.vercel.app/referral"
@@ -76,7 +80,7 @@ const Project = () => {
           <div className="portfolio__item-cta">
             
             <a
-              href="https://fstorage.vn/"
+              href="https://fstorage.vn/bao-gia/"
               className="btn btn-primary"
               target="_blank"
             >
