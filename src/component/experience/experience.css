@@ -1,52 +1,176 @@
-
-
-.experience__container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-.experience__container > div{
-    background: var(--color-bg-variant);
-    padding :2.4rem 3rem;
-    border-radius: 1rem;
-    border: 1px solid transparent;
-
-}
-.experience__container > div:hover{
-    background: transparent;
-    border-color: var(--color-primary-variant);
-    cursor: default;
-}
-.experience__container > div h3{
-    text-align: center;
-    color: var(--color-primary);
-    margin-bottom: 2rem;
-}
-.experience__content{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
-}
-.experience__details{
-    display: flex;
-    align-items:  flex-start;
-    gap:  1rem;
-}
-.experience__details-icon{
-    margin-top: 6px;
+#experience {
+  position: relative;
 }
 
-/* ====================MEIDA QUERIER (midel) ======================= */
-
-@media screen and (max-width:1024px) {
-      .experience__container{
-          grid-template-columns: 1fr;
-          gap: 1rem;
-      }
+/* Timeline layout */
+.experience__timeline {
+  position: relative;
+  padding-left: 2rem;
 }
- @media screen and (max-width:600px) {
-    .experience__container > div{
-        width: 100%;
-        padding: 2rem 1rem;
-    }
- }
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+}
+
+.experience__item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.experience__item:last-child {
+  margin-bottom: 0;
+}
+
+.experience__item-dot {
+  position: absolute;
+  left: -2.55rem;
+  top: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gradient-card);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+.experience__item-card {
+  background: var(--gradient-card);
+  border-radius: 15px;
+  padding: 1.8rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.experience__item-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(113, 39, 186, 0.3), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.experience__item-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 30px rgba(113, 39, 186, 0.15);
+}
+
+.experience__item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.experience__item-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.2rem;
+}
+
+.experience__company {
+  font-size: 0.85rem;
+  color: var(--color-primary-light);
+  font-weight: 500;
+}
+
+.experience__period {
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  font-weight: 500;
+  white-space: nowrap;
+  background: rgba(113, 39, 186, 0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.experience__highlights {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.experience__highlights li {
+  font-size: 0.85rem;
+  color: var(--color-light);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.experience__highlights li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-light);
+  font-size: 0.9rem;
+}
+
+.experience__tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.experience__tech-tag {
+  font-size: 0.7rem;
+  color: var(--color-primary-light);
+  background: rgba(113, 39, 186, 0.12);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid rgba(113, 39, 186, 0.2);
+  font-weight: 500;
+}
+
+/* ==================== MEDIA QUERIES ======================= */
+
+@media screen and (max-width: 1024px) {
+  .experience__item-card {
+    padding: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .experience__timeline {
+    padding-left: 1.5rem;
+  }
+
+  .experience__item-dot {
+    width: 30px;
+    height: 30px;
+    left: -2rem;
+    font-size: 0.75rem;
+  }
+
+  .experience__item-card {
+    padding: 1.2rem;
+  }
+
+  .experience__item-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience__item-header h3 {
+    font-size: 1rem;
+  }
+}
