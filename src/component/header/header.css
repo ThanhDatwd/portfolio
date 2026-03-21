@@ -11,25 +11,37 @@ header {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none;
 }
 
 .header__bg-gradient--1 {
   width: 500px;
   height: 500px;
-  background: var(--color-primary);
+  background: var(--color-primary-light);
   top: 100px;
   left: 30%;
   transform: translateX(-50%);
+  animation: floatBlob 8s ease-in-out infinite;
 }
 
 .header__bg-gradient--2 {
   width: 400px;
   height: 400px;
-  background: #4a0e8f;
+  background: #81ecec;
   top: 300px;
   right: 10%;
+  animation: floatBlob2 10s ease-in-out infinite;
+}
+
+.header__bg-gradient--3 {
+  width: 350px;
+  height: 350px;
+  background: #fab1a0;
+  bottom: 100px;
+  left: 60%;
+  opacity: 0.2;
+  animation: floatBlob3 12s ease-in-out infinite;
 }
 
 .header__container {
@@ -55,7 +67,7 @@ header {
   height: 135px;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--gradient-card);
+  background: var(--color-bg-variant);
   border: none;
 }
 
@@ -93,6 +105,7 @@ header {
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 0.5rem;
+  color: #2d3436;
 }
 
 .header__tagline-desc {
@@ -110,17 +123,13 @@ header {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #2d3436;
+  white-space: nowrap;
 }
 
-.header__cursor {
+/* TypeAnimation cursor style */
+.header__title .type-animation-cursor {
   color: var(--color-primary);
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
 }
 
 .header__bio {

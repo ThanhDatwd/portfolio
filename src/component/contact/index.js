@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
-import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { AiFillGithub } from 'react-icons/ai';
 import { AiOutlineMail } from 'react-icons/ai';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './contact.css';
 
 const Contact = () => {
   const form = useRef();
+  const sectionRef = useScrollReveal();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" ref={sectionRef} className="scroll-reveal">
       <div className="container contact__container">
         <div className="contact__info">
           <h2>Contact</h2>

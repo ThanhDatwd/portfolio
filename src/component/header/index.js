@@ -1,5 +1,6 @@
 import React from 'react';
-import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { TypeAnimation } from 'react-type-animation';
+import { AiFillGithub } from 'react-icons/ai';
 import './header.css';
 
 const Header = () => {
@@ -7,9 +8,10 @@ const Header = () => {
     <header id="home">
       <div className="header__bg-gradient header__bg-gradient--1" />
       <div className="header__bg-gradient header__bg-gradient--2" />
+      <div className="header__bg-gradient header__bg-gradient--3" />
 
       <div className="container header__container">
-        <div className="header__intro">
+        <div className="header__intro animate-fadeIn">
           <div className="header__avatar-wrapper">
             <div className="header__avatar">
               <img src="/assets/me.png" alt="Thành Đạt" />
@@ -33,9 +35,15 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="header__about">
+        <div className="header__about animate-fadeIn animate-delay-2">
           <h2 className="header__title">
-            I'm a Web Developer.<span className="header__cursor">|</span>
+            <TypeAnimation
+              sequence={[800, "I'm a Web Developer."]}
+              speed={50}
+              repeat={0}
+              wrapper="span"
+              cursor={true}
+            />
           </h2>
           <p className="header__bio">
             Frontend Developer with 3+ years of experience delivering web products
@@ -46,7 +54,7 @@ const Header = () => {
           </p>
         </div>
 
-        <div className="header__cta">
+        <div className="header__cta animate-fadeIn animate-delay-3">
           <a href="#project" className="btn btn-primary">View My Work</a>
           <a href="#contact" className="btn">Contact Me</a>
           <div className="header__socials">

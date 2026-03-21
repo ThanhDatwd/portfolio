@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsBriefcaseFill } from 'react-icons/bs';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './experience.css';
 
 const workExperiences = [
@@ -50,8 +51,10 @@ const workExperiences = [
 ];
 
 const Experience = () => {
+  const sectionRef = useScrollReveal();
+
   return (
-    <section id="experience">
+    <section id="experience" ref={sectionRef} className="scroll-reveal">
       <div className="container">
         <div className="section__title">
           <h2>Work Experience</h2>
