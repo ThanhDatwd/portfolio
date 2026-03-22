@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
-import { AiFillGithub } from 'react-icons/ai';
-import { AiOutlineMail } from 'react-icons/ai';
+import { AiFillGithub, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 import useScrollReveal from '../../hooks/useScrollReveal';
 import './contact.css';
 
@@ -37,6 +36,10 @@ const Contact = () => {
           <a href="mailto:nguyenthanhdatntd01@gmail.com" className="contact__email">
             <AiOutlineMail />
             nguyenthanhdatntd01@gmail.com
+          </a>
+          <a href="tel:0386352313" className="contact__phone">
+            <AiOutlinePhone />
+            0386352313
           </a>
           <div className="contact__socials">
             <a href="https://github.com/ThanhDatwd" target="_blank" rel="noreferrer">

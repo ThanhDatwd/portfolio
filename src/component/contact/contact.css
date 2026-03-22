@@ -21,17 +21,23 @@
   margin-bottom: 1.5rem;
 }
 
-.contact__email {
-  display: inline-flex;
+.contact__email,
+.contact__phone {
+  display: flex;
   align-items: center;
   gap: 0.6rem;
   font-size: 0.95rem;
   color: var(--color-white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: var(--transition);
 }
 
-.contact__email:hover {
+.contact__phone {
+  margin-bottom: 1.5rem;
+}
+
+.contact__email:hover,
+.contact__phone:hover {
   color: var(--color-primary);
 }
 

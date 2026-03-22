@@ -6,6 +6,25 @@ import './portfolio.css';
 
 const projects = [
   {
+    tag: 'Company Products',
+    title: 'Katech Products',
+    description:
+      'Built multiple products at Katech including Data Warehouse, AI Chat Assistant, Meeting Recorder, and OTA Platform — delivering end-to-end solutions for enterprise clients.',
+    image: '/assets/katech.png',
+    tech: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'TailwindCSS', 'Docker'],
+    demo: 'https://www.katech.vn/',
+  },
+  {
+    tag: 'Government Project',
+    title: 'Government Client Projects',
+    description:
+      'Developed web platforms for government clients in Vietnam, including internal management systems and digital transformation solutions.',
+    image: '/assets/anh-nha-nuoc.webp',
+    tech: ['React', 'Next.js', 'TypeScript', 'Java', 'REST API', 'TailwindCSS'],
+    demo: null,
+    cover: true,
+  },
+  {
     tag: 'Featured Project',
     title: 'Fstorage - Cloud Storage',
     description:
@@ -61,7 +80,7 @@ const ProjectItem = ({ project, index }) => {
       className={`project__item scroll-reveal ${index % 2 !== 0 ? 'project__item--reverse' : ''}`}
     >
       <div className="project__item-image">
-        <div className="project__item-image-wrapper">
+        <div className={`project__item-image-wrapper ${project.cover ? 'project__item-image-wrapper--cover' : ''}`}>
           <img src={project.image} alt={project.title} />
         </div>
       </div>
@@ -74,11 +93,13 @@ const ProjectItem = ({ project, index }) => {
             <span key={i}>{t}</span>
           ))}
         </div>
-        <div className="project__item-links">
-          <a href={project.demo} target="_blank" rel="noreferrer" className="project__link">
-            <BsBoxArrowUpRight /> Live Demo
-          </a>
-        </div>
+        {project.demo && (
+          <div className="project__item-links">
+            <a href={project.demo} target="_blank" rel="noreferrer" className="project__link">
+              <BsBoxArrowUpRight /> Live Demo
+            </a>
+          </div>
+        )}
       </div>
     </article>
   );

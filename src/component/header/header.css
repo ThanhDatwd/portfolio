@@ -49,94 +49,70 @@ header {
   z-index: 1;
 }
 
-/* Intro section - avatar + tagline */
+/* Intro - avatar row */
 .header__intro {
-  display: flex;
-  align-items: flex-start;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .header__avatar-wrapper {
-  position: relative;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header__avatar {
-  width: 100px;
-  height: 135px;
-  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   overflow: hidden;
   background: var(--color-bg-variant);
-  border: none;
+  flex-shrink: 0;
 }
 
 .header__avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
 }
 
 .header__greeting {
-  display: block;
-  font-size: 0.95rem;
-  color: var(--color-white);
-  margin-top: 0.8rem;
-  white-space: nowrap;
-  letter-spacing: 0.3px;
-}
-
-.header__tagline {
-  padding-top: 0.5rem;
-}
-
-.header__tagline-sub {
   font-size: 1rem;
-  color: var(--color-light);
-  margin-bottom: 0.3rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--color-gray);
-}
-
-.header__tagline h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 0.5rem;
-  color: #2d3436;
-}
-
-.header__tagline-desc {
-  font-size: 0.75rem;
-  color: var(--color-light);
+  color: var(--color-white);
   letter-spacing: 0.3px;
+  font-weight: 500;
 }
 
-/* About section within header */
-.header__about {
-  margin-bottom: 2rem;
+/* Main content - text + illustration side by side */
+.header__main {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
+.header__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.header__visual {
+  flex: 0 0 380px;
+  max-width: 380px;
+}
+
+/* Title & Bio */
 .header__title {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #2d3436;
-  white-space: nowrap;
-}
-
-/* TypeAnimation cursor style */
-.header__title .type-animation-cursor {
-  color: var(--color-primary);
+  line-height: 1.2;
 }
 
 .header__bio {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--color-light);
-  max-width: 700px;
   line-height: 1.8;
+  margin-bottom: 2rem;
 }
 
 /* CTA */
@@ -144,7 +120,6 @@ header {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  margin-top: 2rem;
 }
 
 .header__socials {
@@ -165,6 +140,62 @@ header {
   transform: translateY(-2px);
 }
 
+/* ==================== ILLUSTRATION ======================= */
+
+.header__illustration {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 30px rgba(108, 92, 231, 0.08));
+}
+
+/* Floating animations for illustration elements */
+.hero-float {
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+.hero-float-delay {
+  animation: heroFloat 4s ease-in-out 1s infinite;
+}
+
+.hero-float-slow {
+  animation: heroFloat 5s ease-in-out 0.5s infinite;
+}
+
+.hero-orbit {
+  animation: heroFloat 3.5s ease-in-out 0.2s infinite;
+}
+
+.hero-pulse {
+  animation: heroPulse 2.5s ease-in-out infinite;
+}
+
+.hero-pulse-delay {
+  animation: heroPulse 2.5s ease-in-out 1s infinite;
+}
+
+.hero-steam {
+  animation: heroSteam 3s ease-in-out infinite;
+}
+
+.hero-steam-delay {
+  animation: heroSteam 3s ease-in-out 1.5s infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+@keyframes heroSteam {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 0.5; transform: translateY(-6px); }
+}
+
 /* ==================== MEDIA QUERIES (MEDIUM) ======================= */
 
 @media screen and (max-width: 1024px) {
@@ -172,20 +203,21 @@ header {
     padding-top: 7rem;
   }
 
-  .header__intro {
+  .header__main {
     gap: 2rem;
   }
 
-  .header__tagline h1 {
-    font-size: 2.4rem;
+  .header__visual {
+    flex: 0 0 280px;
+    max-width: 280px;
   }
 
   .header__title {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .header__bio {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -197,25 +229,24 @@ header {
     min-height: auto;
   }
 
-  .header__intro {
+  .header__main {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: 2rem;
+  }
+
+  .header__visual {
+    flex: none;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   .header__avatar {
-    width: 70px;
-    height: 95px;
-    border-radius: 12px;
-  }
-
-  .header__tagline h1 {
-    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
   }
 
   .header__title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .header__bio {
