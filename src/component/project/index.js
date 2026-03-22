@@ -1,10 +1,29 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
-import { AiFillGithub } from 'react-icons/ai';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './portfolio.css';
 
 const projects = [
+  {
+    tag: 'Company Products',
+    title: 'Katech Products',
+    description:
+      'Built multiple products at Katech including Data Warehouse, AI Chat Assistant, Meeting Recorder, and OTA Platform — delivering end-to-end solutions for enterprise clients.',
+    image: '/assets/katech.png',
+    tech: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'TailwindCSS', 'Docker'],
+    demo: 'https://www.katech.vn/',
+  },
+  {
+    tag: 'Government Project',
+    title: 'Government Client Projects',
+    description:
+      'Developed web platforms for government clients in Vietnam, including internal management systems and digital transformation solutions.',
+    image: '/assets/anh-nha-nuoc.webp',
+    tech: ['React', 'Next.js', 'TypeScript', 'Java', 'REST API', 'TailwindCSS'],
+    demo: null,
+    cover: true,
+  },
   {
     tag: 'Featured Project',
     title: 'Fstorage - Cloud Storage',
@@ -52,37 +71,52 @@ const projects = [
   },
 ];
 
+const ProjectItem = ({ project, index }) => {
+  const itemRef = useScrollReveal({ threshold: 0.1 });
+
+  return (
+    <article
+      ref={itemRef}
+      className={`project__item scroll-reveal ${index % 2 !== 0 ? 'project__item--reverse' : ''}`}
+    >
+      <div className="project__item-image">
+        <div className={`project__item-image-wrapper ${project.cover ? 'project__item-image-wrapper--cover' : ''}`}>
+          <img src={project.image} alt={project.title} />
+        </div>
+      </div>
+      <div className="project__item-content">
+        <span className="project__item-tag">{project.tag}</span>
+        <h3 className="project__item-title">{project.title}</h3>
+        <p className="project__item-desc">{project.description}</p>
+        <div className="project__item-tech">
+          {project.tech.map((t, i) => (
+            <span key={i}>{t}</span>
+          ))}
+        </div>
+        {project.demo && (
+          <div className="project__item-links">
+            <a href={project.demo} target="_blank" rel="noreferrer" className="project__link">
+              <BsBoxArrowUpRight /> Live Demo
+            </a>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
 const Project = () => {
+  const sectionRef = useScrollReveal();
+
   return (
     <section id="project">
       <div className="container">
+        <div ref={sectionRef} className="section__title scroll-reveal">
+          <h2>Featured Projects</h2>
+        </div>
         <div className="project__list">
           {projects.map((project, index) => (
-            <article
-              className={`project__item ${index % 2 !== 0 ? 'project__item--reverse' : ''}`}
-              key={index}
-            >
-              <div className="project__item-image">
-                <div className="project__item-image-wrapper">
-                  <img src={project.image} alt={project.title} />
-                </div>
-              </div>
-              <div className="project__item-content">
-                <span className="project__item-tag">{project.tag}</span>
-                <h3 className="project__item-title">{project.title}</h3>
-                <p className="project__item-desc">{project.description}</p>
-                <div className="project__item-tech">
-                  {project.tech.map((t, i) => (
-                    <span key={i}>{t}</span>
-                  ))}
-                </div>
-                <div className="project__item-links">
-                  <a href={project.demo} target="_blank" rel="noreferrer" className="project__link">
-                    <BsBoxArrowUpRight /> Live Demo
-                  </a>
-                </div>
-              </div>
-            </article>
+            <ProjectItem key={index} project={project} index={index} />
           ))}
         </div>
       </div>

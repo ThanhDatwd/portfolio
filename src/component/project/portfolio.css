@@ -33,7 +33,7 @@
   position: absolute;
   inset: -8px;
   border-radius: 20px;
-  background: var(--gradient-card);
+  background: linear-gradient(135deg, #f0f2f9, #e8ecf4);
   z-index: 0;
 }
 
@@ -42,12 +42,13 @@
   z-index: 1;
   border-radius: 15px;
   overflow: hidden;
-  background: var(--color-bg-card);
+  background: #fff;
   aspect-ratio: 16/10;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  border: 1px solid #e8ecf4;
 }
 
 .project__item-image-wrapper img {
@@ -55,6 +56,19 @@
   max-height: 80%;
   object-fit: contain;
   transition: var(--transition);
+}
+
+/* Government project - full cover image */
+.project__item-image-wrapper.project__item-image-wrapper--cover {
+  padding: 0;
+}
+
+.project__item-image-wrapper--cover img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project__item:hover .project__item-image-wrapper img {
@@ -69,7 +83,7 @@
 .project__item-tag {
   display: inline-block;
   font-size: 0.75rem;
-  color: var(--color-primary-light);
+  color: var(--color-primary);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -80,7 +94,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--color-white);
+  color: #2d3436;
 }
 
 .project__item-desc {
@@ -88,10 +102,10 @@
   color: var(--color-light);
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: #f8f9ff;
   padding: 1.2rem 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #e8ecf4;
 }
 
 .project__item-tech {
@@ -103,12 +117,12 @@
 
 .project__item-tech span {
   font-size: 0.8rem;
-  color: var(--color-light);
+  color: var(--color-primary);
   font-weight: 500;
   padding: 0.3rem 0.8rem;
-  background: rgba(113, 39, 186, 0.15);
+  background: var(--color-primary-variant);
   border-radius: 6px;
-  border: 1px solid rgba(113, 39, 186, 0.2);
+  border: 1px solid rgba(108, 92, 231, 0.15);
 }
 
 .project__item-links {
@@ -121,13 +135,13 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--color-primary-light);
+  color: var(--color-primary);
   font-weight: 500;
   transition: var(--transition);
 }
 
 .project__link:hover {
-  color: var(--color-white);
+  color: var(--color-primary-light);
   transform: translateX(4px);
 }
 

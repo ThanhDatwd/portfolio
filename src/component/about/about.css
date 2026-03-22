@@ -43,16 +43,18 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #fff;
+  border: 1px solid #e8ecf4;
   border-radius: 100px;
   transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .about__tech-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--color-primary-variant);
+  background: var(--color-primary-variant);
+  border-color: var(--color-primary-light);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.12);
 }
 
 .about__tech-dot {

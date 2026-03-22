@@ -1,9 +1,10 @@
 import React from 'react';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './about.css';
 
 const techStack = [
   { name: 'React', color: '#61DAFB' },
-  { name: 'Next.js', color: '#ffffff' },
+  { name: 'Next.js', color: '#000000' },
   { name: 'TypeScript', color: '#3178C6' },
   { name: 'JavaScript', color: '#F7DF1E' },
   { name: 'TailwindCSS', color: '#06B6D4' },
@@ -23,8 +24,10 @@ const techStack = [
 ];
 
 const About = () => {
+  const sectionRef = useScrollReveal();
+
   return (
-    <section id="about">
+    <section id="about" ref={sectionRef} className="scroll-reveal">
       <div className="container about__container">
         <div className="about__text">
           <p className="about__looking">
@@ -38,7 +41,11 @@ const About = () => {
 
         <div className="about__tech">
           {techStack.map((tech, index) => (
-            <div className="about__tech-item" key={index}>
+            <div
+              className="about__tech-item"
+              key={index}
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
               <span
                 className="about__tech-dot"
                 style={{ background: tech.color }}
