@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './nav.css';
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState('#');
+  const [activeNav, setActiveNav] = useState('#home');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,14 +16,14 @@ const Nav = () => {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="nav__container">
-        <a href="#" className="nav__logo" onClick={() => setActiveNav('#')}>
-          <img src="/assets/me.png" alt="TD" className="logo__avatar" />
+        <a href="#home" className="nav__logo" onClick={() => setActiveNav('#home')}>
+          <span className="logo__icon">TD</span>
         </a>
         <div className="nav__links">
           <a
-            href="#"
+            href="#home"
             className={activeNav === '#' ? 'active' : ''}
-            onClick={() => setActiveNav('#')}
+            onClick={() => setActiveNav('#home')}
           >
             Home
           </a>
