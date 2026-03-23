@@ -1,0 +1,85 @@
+name: CI/CD Deploy Pipeline Portfolio
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.cache/yarn
+          key: yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test --watchAll=false --passWithNoTests
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.cache/yarn
+          key: yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build/
+          retention-days: 1
+
+  deploy-staging:
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      image_name: portfolio-staging
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      image_name: portfolio
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

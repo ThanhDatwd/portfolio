@@ -17,7 +17,7 @@ const Nav = () => {
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="nav__container">
         <a href="#home" className="nav__logo" onClick={() => setActiveNav('#home')}>
-          <span className="logo__icon">TD</span>
+          <img src="/assets/me.png" alt="TD" className="logo__avatar" />
         </a>
         <div className="nav__links">
           <a
